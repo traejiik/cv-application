@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Outfit:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 100%;
+  line-height: 1.5;
+  --font-white: #fff;
+  --font-black: #000;
+  --alt-black: #161b22;
+  --background: #0d1117;
+  --primary-col: #3b82f6;
+  --secondary-col: #8b5cf6;
+  --tertiary-col: #22d3ee;
+  --success-col: #10b981;
+  --caution-col: #f59e0b;
+  --fail-col: #ef4444;
+
+  color: var(--font-white);
+  background-color: var(--background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', serif;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+}
+
+button {
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--alt-black);
+  border: 1px solid transparent;
+}
+
+button:hover {
+  border-color: var(--primary-col);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+a {
+  font-weight: 500;
+  color: var(--primary-col);
+}
+
+a:hover {
+  color: var(--secondary-col);
+}
