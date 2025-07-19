@@ -19,7 +19,6 @@
   --success-col: #10b981;
   --caution-col: #f59e0b;
   --fail-col: #ef4444;
-
   color: var(--font-white);
   background-color: var(--background);
 }
