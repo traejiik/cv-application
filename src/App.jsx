@@ -29,12 +29,12 @@ function App() {
     }));
   };
 
-  const handlePersonalToggle = (view) => {
+  const handlePersonalToggle = () => {
     setCvData((prev) => ({
       ...prev,
       personalInfo: {
         ...prev.personalInfo,
-        isEditing: !view ? true : false,
+        isEditing: !prev.personalInfo.isEditing,
       },
     }));
   };
@@ -57,7 +57,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className='sectionEditors'>
         <Personal
           isEditing={cvData.personalInfo.isEditing}
           data={cvData.personalInfo.data}
@@ -66,6 +66,7 @@ function App() {
           onClear={handlePersonalClear}
         />
       </div>
+      <div className="previewCtn"></div>
     </>
   );
 }
