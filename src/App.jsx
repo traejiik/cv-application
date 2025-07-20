@@ -17,6 +17,7 @@ function App() {
     },
     education: {
       isEditing: false,
+      isVisible: false,
       data: [
         {
           id: 0,
