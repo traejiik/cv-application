@@ -155,13 +155,16 @@ function App() {
   };
 
   const handleEduEdit = (index) => {
-    setCvData((prev) => ({
-      ...prev,
-      education: {
-        ...prev.education,
-        editingIndex: index,
-      },
-    }));
+    setCvData((prev) => {
+      const value = prev.education.editingIndex;
+      return {
+        ...prev,
+        education: {
+          ...prev.education,
+          editingIndex: index == value ? null : index,
+        },
+      };
+    });
   };
 
   const handleEduAdd = () => {
