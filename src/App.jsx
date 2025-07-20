@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Header from './app/header';
 import Personal from './app/personalInfo';
+import Education from './app/education';
 
 function App() {
   const [cvData, setCvData] = useState({
@@ -16,15 +17,22 @@ function App() {
       },
     },
     education: {
-      editingIndex: null,
-      isVisible: false,
+      editingIndex: 0,
+      isVisible: true,
       data: [
         {
           id: 0,
           school: 'MIT',
           degree: 'BSc Computer Engineering',
-          from: '2021',
-          until: '2024',
+          from: '2022-09-08',
+          until: '2024-05-23',
+        },
+        {
+          id: 1,
+          school: 'Havard',
+          degree: 'MSc Computer Engineering',
+          from: '2024-09-18',
+          until: '2025-05-23',
         },
       ],
     },
@@ -117,6 +125,11 @@ function App() {
             onChange={handlePersonalChange}
             onToggleEdit={handlePersonalToggle}
             onClear={handlePersonalClear}
+          />
+          <Education
+            editingIndex={cvData.education.editingIndex}
+            isVisible={cvData.education.isVisible}
+            data={cvData.education.data}
           />
         </div>
         <div className="previewCtn"></div>
