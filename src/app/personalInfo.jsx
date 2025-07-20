@@ -60,12 +60,14 @@ export default function Personal({ isEditing, data, onChange, onToggleEdit, onCl
             </div>
             Clear Form
           </button>
-          <button className="cancelBtn" onClick={onToggleEdit} type="button">
-            Cancel
-          </button>
-          <button className="submitBtn" onClick={onToggleEdit}>
-            Submit
-          </button>
+          <div className="actionBtns">
+            <button className="cancelBtn" onClick={onToggleEdit} type="button">
+              Cancel
+            </button>
+            <button className="submitBtn" onClick={onToggleEdit}>
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     );
