@@ -40,10 +40,10 @@ export default function Personal({ isEditing, data, onChange, onToggleEdit, onCl
           </div>
         </div>
         <div className="infoField">
-          <label htmlFor="location">Location</label>
+          <label htmlFor="perLocation">Location</label>
           <input
             value={data.location}
-            id="location"
+            id="perLocation"
             type="text"
             onChange={(e) => onChange('location', e.target.value)}
           />
