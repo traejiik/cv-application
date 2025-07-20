@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Header from './app/header';
 import Personal from './app/personalInfo';
 
 function App() {
@@ -106,16 +107,19 @@ function App() {
 
   return (
     <>
-      <div className="sectionEditors">
-        <Personal
-          isEditing={cvData.personalInfo.isEditing}
-          data={cvData.personalInfo.data}
-          onChange={handlePersonalChange}
-          onToggleEdit={handlePersonalToggle}
-          onClear={handlePersonalClear}
-        />
+      <Header />
+      <div className="container">
+        <div className="sectionEditors">
+          <Personal
+            isEditing={cvData.personalInfo.isEditing}
+            data={cvData.personalInfo.data}
+            onChange={handlePersonalChange}
+            onToggleEdit={handlePersonalToggle}
+            onClear={handlePersonalClear}
+          />
+        </div>
+        <div className="previewCtn"></div>
       </div>
-      <div className="previewCtn"></div>
     </>
   );
 }
