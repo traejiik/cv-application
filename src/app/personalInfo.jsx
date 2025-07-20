@@ -71,7 +71,7 @@ export default function Personal({ isEditing, data, onChange, onToggleEdit, onCl
     );
   } else {
     return (
-      <div className="dispInfo">
+      <div className="dispPersonal">
         <div className="dispField">
           <h3>{data.name}</h3>
         </div>
