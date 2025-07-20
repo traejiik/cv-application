@@ -12,7 +12,7 @@ export default function Education({
     //visible no editing
     return (
       <section className="edu visible">
-        <button onClick={onToggleView}>
+        <button onClick={() => onToggleView('education')}>
           <h3>Education</h3>
           <div className="fieldIcon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ export default function Education({
                       <button className="eduCancel" onClick={() => onToggleEdit(index)}>
                         Cancel
                       </button>
-                      <button className="eduAdd" onClick={onAdd}>
+                      <button className="eduAdd" onClick={onToggleEdit(index)}>
                         <div className="fieldIcon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
@@ -134,7 +134,7 @@ export default function Education({
     //not visible
     return (
       <section className="edu">
-        <button onClick={onToggleView}>
+        <button onClick={() => onToggleView('education')}>
           <h3>Education</h3>
           <div className="fieldIcon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

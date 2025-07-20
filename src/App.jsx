@@ -65,8 +65,37 @@ function App() {
       data: ['css', 'html', 'react'],
     },
   });
+  const [nextIds, setNextIds] = useState({
+    education: 2,
+    experience: 0,
+    projects: 0,
+    skills: 0,
+  });
 
-  // Personal Info
+  // General
+  const handleToggleView = (section) => {
+    setCvData((prev) => {
+      const newCvData = { ...prev };
+
+      for (const key in newCvData) {
+        if ('isVisible' in newCvData[key]) {
+          newCvData[key] = {
+            ...newCvData[key],
+            isVisible: false,
+          };
+        }
+      }
+
+      newCvData[section] = {
+        ...newCvData[section],
+        isVisible: !prev[section].isVisible,
+      };
+
+      return newCvData;
+    });
+  };
+
+  // Personal
   const handlePersonalChange = (field, value) => {
     setCvData((prev) => ({
       ...prev,
@@ -107,6 +136,70 @@ function App() {
   };
 
   // Education
+  const handleEduChange = (index, field, value) => {
+    setCvData((prev) => {
+      const updatedEducation = [...prev.education.data];
+      updatedEducation[index] = {
+        ...updatedEducation[index],
+        [field]: value,
+      };
+
+      return {
+        ...prev,
+        education: {
+          ...prev.education,
+          data: updatedEducation,
+        },
+      };
+    });
+  };
+
+  const handleEduEdit = (index) => {
+    setCvData((prev) => ({
+      ...prev,
+      education: {
+        ...prev.education,
+        editingIndex: [index],
+      },
+    }));
+  };
+
+  const handleEduAdd = () => {
+    setCvData((prev) => ({
+      ...prev,
+      education: {
+        ...prev.education,
+        editingIndex: nextIds.education,
+        data: [
+          ...prev.education.data,
+          {
+            id: nextIds.education,
+            school: '',
+            degree: '',
+            from: '',
+            until: '',
+          },
+        ],
+      },
+    }));
+
+    setNextIds((prevId) => prevId.education + 1);
+  };
+
+  const handleEduDelete = (index) => {
+    setCvData((prev) => {
+      const prevList = [...prev.education.data];
+      const newList = prevList.splice(index, 0);
+
+      return {
+        ...prev,
+        education: {
+          ...prev.education,
+          data: newList,
+        },
+      };
+    });
+  };
 
   // Experience
 
@@ -130,6 +223,11 @@ function App() {
             editingIndex={cvData.education.editingIndex}
             isVisible={cvData.education.isVisible}
             data={cvData.education.data}
+            onChange={handleEduChange}
+            onToggleEdit={handleEduEdit}
+            onToggleView={handleToggleView}
+            onAdd={handleEduAdd}
+            onDelete={handleEduDelete}
           />
         </div>
         <div className="previewCtn"></div>
