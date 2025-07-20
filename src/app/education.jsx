@@ -13,7 +13,7 @@ export default function Education({
     return (
       <section className="edu visible">
         <button onClick={onToggleView}>
-          Education
+          <h3>Education</h3>
           <div className="fieldIcon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
@@ -36,7 +36,7 @@ export default function Education({
                       type="text"
                       name="eduSchool"
                       id="eduSchool"
-                      value={school}
+                      value={school.school}
                       onChange={(e) => onChange(index, 'school', e.target.value)}
                     />
                   </div>
@@ -46,6 +46,7 @@ export default function Education({
                       type="text"
                       name="eduDeg"
                       id="eduDeg"
+                      value={school.degree}
                       onChange={(e) => onChange(index, 'degree', e.target.value)}
                     />
                   </div>
@@ -53,24 +54,26 @@ export default function Education({
                     <div className="eduGroup">
                       <label htmlFor="eduFrom">Date From</label>
                       <input
-                        type="text"
+                        type="date"
                         name="eduFrom"
                         id="eduFrom"
+                        value={school.from}
                         onChange={(e) => onChange(index, 'from', e.target.value)}
                       />
                     </div>
                     <div className="eduGroup">
                       <label htmlFor="eduUntil">Until</label>
                       <input
-                        type="text"
+                        type="date"
                         name="eduUntil"
                         id="eduUntil"
+                        value={school.until}
                         onChange={(e) => onChange(index, 'until', e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="eduBtnCtn">
-                    <button className="eduDelete" onClick={onDelete}>
+                    <button className="eduDelete" onClick={() => onDelete(index)}>
                       <div className="fieldIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                           <path
@@ -104,8 +107,8 @@ export default function Education({
               return (
                 <li key={school.id} className="eduListItem">
                   <button className="eduListBtn" onClick={() => onToggleEdit(index)}>
-                    <span className="eduListSch">{school.school}</span>
-                    ', '<span className="eduListDeg">{school.degree}</span>
+                    <span className="eduListSch">{school.school},</span>
+                    <span className="eduListDeg">{school.degree}</span>
                   </button>
                 </li>
               );
@@ -113,7 +116,7 @@ export default function Education({
           })}
         </ul>
         <div className="addBtnCtn">
-          <button>
+          <button onClick={onAdd}>
             <div className="fieldIcon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
@@ -132,7 +135,7 @@ export default function Education({
     return (
       <section className="edu">
         <button onClick={onToggleView}>
-          Education
+          <h3>Education</h3>
           <div className="fieldIcon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
