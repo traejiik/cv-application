@@ -88,7 +88,7 @@ export default function Education({
                       <button className="eduCancel" onClick={() => onToggleEdit(index)}>
                         Cancel
                       </button>
-                      <button className="eduAdd" onClick={onToggleEdit(index)}>
+                      <button className="eduAdd" onClick={() => onToggleEdit(index)}>
                         <div className="fieldIcon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path

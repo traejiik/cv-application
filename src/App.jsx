@@ -159,7 +159,7 @@ function App() {
       ...prev,
       education: {
         ...prev.education,
-        editingIndex: [index],
+        editingIndex: index,
       },
     }));
   };
@@ -183,13 +183,16 @@ function App() {
       },
     }));
 
-    setNextIds((prevId) => prevId.education + 1);
+    setNextIds((prevId) => ({
+      ...prevId,
+      education: prevId.education + 1,
+    }));
   };
 
   const handleEduDelete = (index) => {
     setCvData((prev) => {
       const prevList = [...prev.education.data];
-      const newList = prevList.splice(index, 0);
+      const newList = prevList.filter((_, i) => i !== index);
 
       return {
         ...prev,
