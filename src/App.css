@@ -163,7 +163,8 @@ input {
 }
 
 /* Education */
-.edu {
+.edu,
+.exp {
   width: 100%;
   border-radius: 1rem;
   border: 0.1px solid var(--font-white);
@@ -173,12 +174,14 @@ input {
   flex-direction: column;
 }
 
-.edu.visible {
+.edu.visible,
+.exp.visible {
   background-color: var(--background);
   transition: 400ms ease-in;
 }
 
-.edu > button {
+.edu > button,
+.exp > button {
   width: 100%;
   display: flex;
   border-radius: 1rem;
@@ -189,26 +192,32 @@ input {
   background-color: transparent;
 }
 
-.edu.visible > button {
+.edu.visible > button,
+.exp.visible > button {
   border-radius: 1rem 1rem 0 0;
 }
 
-.edu > button:hover {
+.edu > button:hover
+.exp > button:hover {
   border: none;
 }
 
 .edu > button:focus,
-.edu > button:focus-visible {
+.edu > button:focus-visible,
+.exp > button:focus,
+.exp > button:focus-visible {
   outline: none;
 }
 
-.edu > button .fieldIcon {
+.edu > button .fieldIcon,
+.exp > button .fieldIcon {
   color: var(--primary-col);
   margin-right: 9px;
   transition: all 100ms ease-in;
 }
 
-.edu > button .fieldIcon:hover {
+.edu > button .fieldIcon:hover,
+.exp > button .fieldIcon:hover {
   color: var(--secondary-col);
 }
 
@@ -220,11 +229,14 @@ ul {
 }
 
 .eduListItem,
-.eduListBtn {
+.eduListBtn,
+.expListItem,
+.expListBtn {
   width: 100%;
 }
 
-.eduListBtn {
+.eduListBtn,
+.expListBtn {
   border-radius: 0;
   display: flex;
   gap: 0.3rem;
@@ -237,20 +249,24 @@ ul {
   border-bottom: 0.5px solid var(--font-white);
 }
 
-.eduListBtn:hover {
+.eduListBtn:hover,
+.expListBtn:hover {
   transition: 200ms ease-in;
 }
 
-.eduListSch {
+.eduListSch,
+.expListComp {
   font-weight: 700;
 }
 
-.eduListDeg {
+.eduListDeg,
+.expListRole {
   font-weight: 300;
   font-style: italic;
 }
 
-.eduEdit {
+.eduEdit,
+.expEdit {
   padding: 1.5rem;
   background-color: var(--alt-black);
   border: 0.5px solid var(--font-white);
@@ -261,49 +277,57 @@ ul {
   gap: 1rem;
 }
 
-.eduEdit h3 {
+.eduEdit h3,
+.expEdit h3 {
   margin-bottom: 1rem;
 }
 
-.eduGroup {
+.eduGroup,
+.expGroup {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
 }
 
-.inlineEduGroup {
+.inlineEduGroup,
+.inlineExpGroup {
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
 }
 
-.eduBtnCtn {
+.eduBtnCtn,
+.expBtnCtn {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.eduDelete {
+.eduDelete,
+.expDelete {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   color: var(--font-white);
 }
 
-.eduDelete:hover {
+.eduDelete:hover,
+.expDelete:hover {
   color: var(--fail-col);
   background-color: transparent;
   border: 1px solid transparent;
 }
 
-.eduActionButtons {
+.eduActionButtons,
+.expActionButtons {
   display: flex;
   gap: 1rem;
 }
 
-.eduAdd {
+.eduAdd,
+.expAdd {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -332,8 +356,6 @@ ul {
   transition: all 200ms ease-in-out;
 }
 
-/* Experience */
-
 /* Projects */
 
 /* Skills */
@@ -342,6 +364,7 @@ ul {
 .previewCtn {
   background-color: var(--alt-black);
   border: 0.1px solid var(--font-white);
+  height: 900px;
 }
 
 /* @media screen and (max-width:768px) {
