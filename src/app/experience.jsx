@@ -29,7 +29,7 @@ export default function Experience({
               //visble and editing
               return (
                 <div key={comp.id} className="eduEdit eduListItem">
-                  <h3>Eexperience Details</h3>
+                  <h3>Experience Details</h3>
                   <div className="expGroup">
                     <label htmlFor="expComp">Company</label>
                     <input
@@ -40,7 +40,7 @@ export default function Experience({
                       onChange={(e) => onChange('experience', index, 'company', e.target.value)}
                     />
                   </div>
-                  <div className="exoGroup">
+                  <div className="expGroup">
                     <label htmlFor="expRole">Role</label>
                     <input
                       type="text"
