@@ -168,14 +168,14 @@ input {
   border-radius: 1rem;
   border: 0.1px solid var(--font-white);
   background-color: var(--alt-black);
-  transition: 100ms ease-in-out;
+  transition: 400ms ease-in;
   display: flex;
   flex-direction: column;
 }
 
 .edu.visible {
   background-color: var(--background);
-  transition: 100ms ease-in-out;
+  transition: 400ms ease-in;
 }
 
 .edu > button {
@@ -189,8 +189,17 @@ input {
   background-color: transparent;
 }
 
+.edu.visible > button {
+  border-radius: 1rem 1rem 0 0;
+}
+
 .edu > button:hover {
   border: none;
+}
+
+.edu > button:focus,
+.edu > button:focus-visible {
+  outline: none;
 }
 
 .edu > button .fieldIcon {
