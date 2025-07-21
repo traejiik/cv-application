@@ -6,6 +6,7 @@ import Education from './app/education';
 import Experience from './app/experience';
 import Projects from './app/projects';
 import Skills from './app/skills';
+import CVPreview from './app/cvpreview';
 
 function App() {
   const [cvData, setCvData] = useState({
@@ -337,7 +338,9 @@ function App() {
             onDelete={handleDelete}
           />
         </div>
-        <div className="previewCtn"></div>
+        <div className="previewCtn">
+          <CVPreview data={cvData} />
+        </div>
       </div>
     </>
   );

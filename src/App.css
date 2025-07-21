@@ -19,7 +19,7 @@ header {
   background-color: var(--alt-black);
   display: flex;
   justify-content: center;
-  border-bottom: 0.5px solid var(--font-white);
+  border-bottom: 1px solid var(--font-white);
   padding: 1rem;
 }
 
@@ -138,6 +138,14 @@ input {
   gap: 0.5rem;
 }
 
+.dispField:nth-child(3),
+.dispField:nth-child(4),
+.dispField:nth-child(5) {
+  padding-bottom: 0.5rem;
+}
+
+
+
 .editBtn {
   float: right;
   position: relative;
@@ -246,8 +254,8 @@ ul {
   transition: 200ms ease-in;
   border-left: none;
   border-right: none;
-  border-top: 0.5px solid var(--font-white);
-  border-bottom: 0.5px solid var(--font-white);
+  border-top: 1px solid var(--font-white);
+  border-bottom: 1px solid var(--font-white);
 }
 
 .proListBtn {
@@ -278,7 +286,7 @@ ul {
 .expEdit {
   padding: 1.5rem;
   background-color: var(--alt-black);
-  border: 0.5px solid var(--font-white);
+  border: 1px solid var(--font-white);
   border-left: none;
   border-right: none;
   display: flex;
@@ -365,15 +373,102 @@ ul {
   transition: all 200ms ease-in-out;
 }
 
-/* Projects */
-
-/* Skills */
-
 /* Preview */
 .previewCtn {
   background-color: var(--alt-black);
   border: 0.1px solid var(--font-white);
-  height: 900px;
+  height: fit-content;
+  padding: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.prevContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.prevContainer > .logo {
+  width: 100%;
+  justify-content: center;
+}
+
+.prevContainer > .logo > .fieldIcon {
+  color: var(--font-white);
+  height: 32px;
+  width: 32px;
+}
+
+.prevContainer .title {
+  border-bottom: 5px solid var(--tertiary-col);
+  margin-top: 2rem;
+  padding-bottom: 0.25rem;
+}
+
+.prevContainer .content { 
+  margin-top: 1rem;
+}
+
+.nameSec {
+  margin-bottom: 1rem;
+}
+
+.nameSec .sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detSec {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.detSec p,
+.nameSec> .sub p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prevEducation .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cvField {
+  padding: 0.5rem 0;
+}
+
+
+.eduDetSec {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.eduDetSec span,
+.prevProjects span {
+  opacity: 0.6;
+}
+
+.prevSkills .content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skillPill {
+  padding: 10px 20px;
+  border-radius: 2rem;
+  background-color: var(--primary-col);
+}
+
+.prevContainer .fieldIcon {
+  height: 24px;
+  width: 24px;
+  color: var(--primary-col);
 }
 
 /* @media screen and (max-width:768px) {
