@@ -215,7 +215,7 @@ function App() {
   const handleExpAdd = () => {
     setCvData((prev) => ({
       ...prev,
-      education: {
+      experience: {
         ...prev.experience,
         editingIndex: nextIds.experience,
         data: [
@@ -265,7 +265,7 @@ function App() {
   const handleSkillAdd = () => {
     setCvData((prev) => ({
       ...prev,
-      projects: {
+      skills: {
         ...prev.skills,
         editingIndex: nextIds.skills,
         data: [
