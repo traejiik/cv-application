@@ -69,7 +69,7 @@ function App() {
   });
   const [nextIds, setNextIds] = useState({
     education: 2,
-    experience: 0,
+    experience: 1,
     projects: 0,
     skills: 0,
   });
@@ -205,6 +205,30 @@ function App() {
   };
 
   // Experience
+  const handleExpAdd = () => {
+    setCvData((prev) => ({
+      ...prev,
+      education: {
+        ...prev.experience,
+        editingIndex: nextIds.experience,
+        data: [
+          ...prev.experience.data,
+          {
+            id: nextIds.experience,
+            school: '',
+            degree: '',
+            from: '',
+            until: '',
+          },
+        ],
+      },
+    }));
+
+    setNextIds((prevId) => ({
+      ...prevId,
+      experience: prevId.experience + 1,
+    }));
+  };
 
   // Projects
 
@@ -233,9 +257,9 @@ function App() {
             onDelete={handleDelete}
           />
           <Experience
-            editingIndex={cvData.education.editingIndex}
-            isVisible={cvData.education.isVisible}
-            data={cvData.education.data}
+            editingIndex={cvData.experience.editingIndex}
+            isVisible={cvData.experience.isVisible}
+            data={cvData.experience.data}
             onChange={handleChange}
             onToggleEdit={handleEdit}
             onToggleView={handleToggleView}

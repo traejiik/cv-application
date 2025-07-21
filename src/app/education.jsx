@@ -47,7 +47,7 @@ export default function Education({
                       name="eduDeg"
                       id="eduDeg"
                       value={school.degree}
-                      onChange={(e) => onChange('education',index, 'degree', e.target.value)}
+                      onChange={(e) => onChange('education', index, 'degree', e.target.value)}
                     />
                   </div>
                   <div className="inlineEduGroup">
@@ -58,7 +58,7 @@ export default function Education({
                         name="eduFrom"
                         id="eduFrom"
                         value={school.from}
-                        onChange={(e) => onChange('education',index, 'from', e.target.value)}
+                        onChange={(e) => onChange('education', index, 'from', e.target.value)}
                       />
                     </div>
                     <div className="eduGroup">
@@ -68,12 +68,12 @@ export default function Education({
                         name="eduUntil"
                         id="eduUntil"
                         value={school.until}
-                        onChange={(e) => onChange('education',index, 'until', e.target.value)}
+                        onChange={(e) => onChange('education', index, 'until', e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="eduBtnCtn">
-                    <button className="eduDelete" onClick={() => onDelete('education',index)}>
+                    <button className="eduDelete" onClick={() => onDelete('education', index)}>
                       <div className="fieldIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                           <path
@@ -85,10 +85,13 @@ export default function Education({
                       Delete
                     </button>
                     <div className="eduActionButtons">
-                      <button className="eduCancel" onClick={() => onToggleEdit('education',index)}>
+                      <button
+                        className="eduCancel"
+                        onClick={() => onToggleEdit('education', index)}
+                      >
                         Cancel
                       </button>
-                      <button className="eduAdd" onClick={() => onToggleEdit('education',index)}>
+                      <button className="eduAdd" onClick={() => onToggleEdit('education', index)}>
                         <div className="fieldIcon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
@@ -106,7 +109,7 @@ export default function Education({
             } else {
               return (
                 <li key={school.id} className="eduListItem">
-                  <button className="eduListBtn" onClick={() => onToggleEdit('education',index)}>
+                  <button className="eduListBtn" onClick={() => onToggleEdit('education', index)}>
                     <span className="eduListSch">{school.school},</span>
                     <span className="eduListDeg">{school.degree}</span>
                   </button>

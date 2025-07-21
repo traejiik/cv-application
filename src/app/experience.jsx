@@ -36,8 +36,8 @@ export default function Experience({
                       type="text"
                       name="expComp"
                       id="expComp"
-                      value={comp.school}
-                      onChange={(e) => onChange('experience',index, 'company', e.target.value)}
+                      value={comp.company}
+                      onChange={(e) => onChange('experience', index, 'company', e.target.value)}
                     />
                   </div>
                   <div className="exoGroup">
@@ -46,8 +46,8 @@ export default function Experience({
                       type="text"
                       name="expRole"
                       id="expRole"
-                      value={comp.degree}
-                      onChange={(e) => onChange('experience',index, 'role', e.target.value)}
+                      value={comp.role}
+                      onChange={(e) => onChange('experience', index, 'role', e.target.value)}
                     />
                   </div>
                   <div className="inlineExpGroup">
@@ -58,7 +58,7 @@ export default function Experience({
                         name="expFrom"
                         id="expFrom"
                         value={comp.from}
-                        onChange={(e) => onChange('experience',index, 'from', e.target.value)}
+                        onChange={(e) => onChange('experience', index, 'from', e.target.value)}
                       />
                     </div>
                     <div className="expGroup">
@@ -68,12 +68,12 @@ export default function Experience({
                         name="expUntil"
                         id="expUntil"
                         value={comp.until}
-                        onChange={(e) => onChange('experience',index, 'until', e.target.value)}
+                        onChange={(e) => onChange('experience', index, 'until', e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="expBtnCtn">
-                    <button className="expDelete" onClick={() => onDelete('experience',index)}>
+                    <button className="expDelete" onClick={() => onDelete('experience', index)}>
                       <div className="fieldIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                           <path
@@ -85,10 +85,13 @@ export default function Experience({
                       Delete
                     </button>
                     <div className="expActionButtons">
-                      <button className="expCancel" onClick={() => onToggleEdit('experience',index)}>
+                      <button
+                        className="expCancel"
+                        onClick={() => onToggleEdit('experience', index)}
+                      >
                         Cancel
                       </button>
-                      <button className="expAdd" onClick={() => onToggleEdit('experience',index)}>
+                      <button className="expAdd" onClick={() => onToggleEdit('experience', index)}>
                         <div className="fieldIcon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
@@ -106,9 +109,9 @@ export default function Experience({
             } else {
               return (
                 <li key={comp.id} className="expListItem">
-                  <button className="expListBtn" onClick={() => onToggleEdit('experience',index)}>
-                    <span className="expListComp">{comp.school},</span>
-                    <span className="expListRole">{comp.degree}</span>
+                  <button className="expListBtn" onClick={() => onToggleEdit('experience', index)}>
+                    <span className="expListComp">{comp.company},</span>
+                    <span className="expListRole">{comp.role}</span>
                   </button>
                 </li>
               );
