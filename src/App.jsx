@@ -285,6 +285,8 @@ function App() {
     }));
   };
 
+  // Navbar
+
   return (
     <>
       <Header />
