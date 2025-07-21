@@ -65,15 +65,20 @@ function App() {
       ],
     },
     skills: {
-      isEditing: false,
-      data: ['css', 'html', 'react'],
+      editingIndex: null,
+      isVisible: false,
+      data: [
+        { id: 0, skill: 'css' },
+        { id: 1, skill: 'html' },
+        { id: 2, skill: 'react' },
+      ],
     },
   });
   const [nextIds, setNextIds] = useState({
     education: 2,
     experience: 1,
-    projects: 0,
-    skills: 0,
+    projects: 1,
+    skills: 3,
   });
 
   // General
@@ -205,7 +210,6 @@ function App() {
       education: prevId.education + 1,
     }));
   };
-
   // Experience
   const handleExpAdd = () => {
     setCvData((prev) => ({
@@ -231,7 +235,6 @@ function App() {
       experience: prevId.experience + 1,
     }));
   };
-
   // Projects
   const handleProAdd = () => {
     setCvData((prev) => ({
@@ -256,7 +259,7 @@ function App() {
       ...prevId,
       projects: prevId.projects + 1,
     }));
-  }
+  };
 
   // Skills
 
