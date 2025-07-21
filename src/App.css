@@ -236,7 +236,8 @@ ul {
 }
 
 .eduListBtn,
-.expListBtn {
+.expListBtn,
+.proListBtn {
   border-radius: 0;
   display: flex;
   gap: 0.3rem;
@@ -249,8 +250,16 @@ ul {
   border-bottom: 0.5px solid var(--font-white);
 }
 
+.proListBtn {
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  gap: 0.5rem;
+}
+
 .eduListBtn:hover,
-.expListBtn:hover {
+.expListBtn:hover,
+.proListBtn:hover {
   transition: 200ms ease-in;
 }
 
