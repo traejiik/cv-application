@@ -39,7 +39,7 @@ function App() {
     },
     experience: {
       editingIndex: null,
-      isEditing: false,
+      isVisible: false,
       data: [
         {
           id: 0,
@@ -51,14 +51,15 @@ function App() {
       ],
     },
     projects: {
-      isEditing: false,
+      editingIndex: null,
+      isVisible: false,
       data: [
         {
           id: 0,
           title: 'Weather App',
           description: 'Worked on the database for storing user accounts',
-          from: '04/2022',
-          until: '09/2022',
+          from: '2022-04-22',
+          until: '2022-09-12',
         },
       ],
     },
