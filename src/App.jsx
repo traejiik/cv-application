@@ -3,6 +3,7 @@ import './App.css';
 import Header from './app/header';
 import Personal from './app/personalInfo';
 import Education from './app/education';
+import Experience from './app/experience';
 
 function App() {
   const [cvData, setCvData] = useState({
@@ -17,8 +18,8 @@ function App() {
       },
     },
     education: {
-      editingIndex: 0,
-      isVisible: true,
+      editingIndex: null,
+      isVisible: false,
       data: [
         {
           id: 0,
@@ -37,14 +38,15 @@ function App() {
       ],
     },
     experience: {
+      editingIndex: null,
       isEditing: false,
       data: [
         {
           id: 0,
           company: 'Google',
           role: 'Junior Backend Developer',
-          from: '2024',
-          until: 'current',
+          from: '2024-03-21',
+          until: '2025-07-21',
         },
       ],
     },
@@ -94,6 +96,49 @@ function App() {
       return newCvData;
     });
   };
+  const handleChange = (section, index, field, value) => {
+    setCvData((prev) => {
+      const updatedSection = [...prev[section].data];
+      updatedSection[index] = {
+        ...updatedSection[index],
+        [field]: value,
+      };
+
+      return {
+        ...prev,
+        [section]: {
+          ...prev[section],
+          data: updatedSection,
+        },
+      };
+    });
+  };
+  const handleEdit = (section, index) => {
+    setCvData((prev) => {
+      const value = prev[section].editingIndex;
+      return {
+        ...prev,
+        [section]: {
+          ...prev[section],
+          editingIndex: index == value ? null : index,
+        },
+      };
+    });
+  };
+  const handleDelete = (section, index) => {
+    setCvData((prev) => {
+      const prevList = [...prev[section].data];
+      const newList = prevList.filter((_, i) => i !== index);
+
+      return {
+        ...prev,
+        [section]: {
+          ...prev[section],
+          data: newList,
+        },
+      };
+    });
+  };
 
   // Personal
   const handlePersonalChange = (field, value) => {
@@ -108,7 +153,6 @@ function App() {
       },
     }));
   };
-
   const handlePersonalToggle = () => {
     setCvData((prev) => ({
       ...prev,
@@ -118,7 +162,6 @@ function App() {
       },
     }));
   };
-
   const handlePersonalClear = () => {
     setCvData((prev) => ({
       ...prev,
@@ -136,37 +179,6 @@ function App() {
   };
 
   // Education
-  const handleEduChange = (index, field, value) => {
-    setCvData((prev) => {
-      const updatedEducation = [...prev.education.data];
-      updatedEducation[index] = {
-        ...updatedEducation[index],
-        [field]: value,
-      };
-
-      return {
-        ...prev,
-        education: {
-          ...prev.education,
-          data: updatedEducation,
-        },
-      };
-    });
-  };
-
-  const handleEduEdit = (index) => {
-    setCvData((prev) => {
-      const value = prev.education.editingIndex;
-      return {
-        ...prev,
-        education: {
-          ...prev.education,
-          editingIndex: index == value ? null : index,
-        },
-      };
-    });
-  };
-
   const handleEduAdd = () => {
     setCvData((prev) => ({
       ...prev,
@@ -192,21 +204,6 @@ function App() {
     }));
   };
 
-  const handleEduDelete = (index) => {
-    setCvData((prev) => {
-      const prevList = [...prev.education.data];
-      const newList = prevList.filter((_, i) => i !== index);
-
-      return {
-        ...prev,
-        education: {
-          ...prev.education,
-          data: newList,
-        },
-      };
-    });
-  };
-
   // Experience
 
   // Projects
@@ -229,11 +226,21 @@ function App() {
             editingIndex={cvData.education.editingIndex}
             isVisible={cvData.education.isVisible}
             data={cvData.education.data}
-            onChange={handleEduChange}
-            onToggleEdit={handleEduEdit}
+            onChange={handleChange}
+            onToggleEdit={handleEdit}
             onToggleView={handleToggleView}
             onAdd={handleEduAdd}
-            onDelete={handleEduDelete}
+            onDelete={handleDelete}
+          />
+          <Experience
+            editingIndex={cvData.education.editingIndex}
+            isVisible={cvData.education.isVisible}
+            data={cvData.education.data}
+            onChange={handleChange}
+            onToggleEdit={handleEdit}
+            onToggleView={handleToggleView}
+            onAdd={handleExpAdd}
+            onDelete={handleDelete}
           />
         </div>
         <div className="previewCtn"></div>
