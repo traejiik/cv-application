@@ -5,6 +5,7 @@ import Personal from './app/personalInfo';
 import Education from './app/education';
 import Experience from './app/experience';
 import Projects from './app/projects';
+import Skills from './app/skills';
 
 function App() {
   const [cvData, setCvData] = useState({
@@ -260,8 +261,28 @@ function App() {
       projects: prevId.projects + 1,
     }));
   };
-
   // Skills
+  const handleSkillAdd = () => {
+    setCvData((prev) => ({
+      ...prev,
+      projects: {
+        ...prev.skills,
+        editingIndex: nextIds.skills,
+        data: [
+          ...prev.skills.data,
+          {
+            id: nextIds.skills,
+            skill: '',
+          },
+        ],
+      },
+    }));
+
+    setNextIds((prevId) => ({
+      ...prevId,
+      skills: prevId.skills + 1,
+    }));
+  };
 
   return (
     <>
@@ -303,6 +324,16 @@ function App() {
             onToggleEdit={handleEdit}
             onToggleView={handleToggleView}
             onAdd={handleProAdd}
+            onDelete={handleDelete}
+          />
+          <Skills
+            editingIndex={cvData.skills.editingIndex}
+            isVisible={cvData.skills.isVisible}
+            data={cvData.skills.data}
+            onChange={handleChange}
+            onToggleEdit={handleEdit}
+            onToggleView={handleToggleView}
+            onAdd={handleSkillAdd}
             onDelete={handleDelete}
           />
         </div>
